@@ -4,21 +4,21 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   labels:
-    run: flask-sample-one
-  name: flask-sample-one
+    run: fl8
+  name: fl8
 spec:
   replicas: 2
   selector:
     matchLabels:
-      run: flask-sample-one
+      run: fl8
   template:
     metadata:
       labels:
-        run: flask-sample-one
+        run: fl8
     spec:
       containers:
-      - image: localhost:5000/flask-sample-one
-        name: flask-sample-one
+      - image: localhost:5000/fl8
+        name: fl8
         ports:
         - containerPort: 5010
           protocol: TCP
@@ -31,13 +31,13 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    run: flask-sample-one
-  name: flask-sample-one
+    run: fl8
+  name: fl8
 spec:
   ports:
   - port: 80
     protocol: TCP
     targetPort: 5010
   selector:
-    run: flask-sample-one
+    run: fl8
   type: NodePort

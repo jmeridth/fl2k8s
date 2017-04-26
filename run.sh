@@ -7,20 +7,20 @@ minikube start
 eval $(minikube docker-env)
 
 # build docker image
-docker ps -a | awk '{ print $1,$2 }' | grep flask-sample-one:latest | awk '{print $1 }' | xargs -I {} docker rm -f {}
-docker rmi flask-sample-one
-docker build -t flask-sample-one:latest .
+docker ps -a | awk '{ print $1,$2 }' | grep fl8:latest | awk '{print $1 }' | xargs -I {} docker rm -f {}
+docker rmi fl8
+docker build -t fl8:latest .
 
 # create local docker registry and push new image to it
 docker rm -f registry
 docker rmi registry
 docker run -d -p 5000:5000 --restart=always --name registry registry:2
-docker tag flask-sample-one localhost:5000/flask-sample-one
-docker push localhost:5000/flask-sample-one
+docker tag fl8 localhost:5000/fl8
+docker push localhost:5000/fl8
 
 # start fresh
-kubectl delete deployment flask-sample-one
-kubectl delete service flask-sample-one
+kubectl delete deployment fl8
+kubectl delete service fl8
 
 # create kubernetes deployment and service
 kubectl create -f flask.yml
@@ -29,7 +29,7 @@ kubectl create -f flask.yml
 kubectl get all
 
 # display service endpoint url
-minikube service flask-sample-one --url
+minikube service fl8 --url
 
 # open minikube dashboard
 minikube dashboard
