@@ -11,13 +11,6 @@ docker ps -a | awk '{ print $1,$2 }' | grep fl8:latest | awk '{print $1 }' | xar
 docker rmi fl8
 docker build -t fl8:latest .
 
-# create local docker registry and push new image to it
-docker rm -f registry
-docker rmi registry
-docker run -d -p 5000:5000 --restart=always --name registry registry:2
-docker tag fl8 localhost:5000/fl8
-docker push localhost:5000/fl8
-
 # start fresh
 kubectl delete deployment fl8
 kubectl delete service fl8

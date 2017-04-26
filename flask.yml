@@ -17,7 +17,7 @@ spec:
         run: fl8
     spec:
       containers:
-      - image: localhost:5000/fl8
+      - image: jmeridth/fl8
         name: fl8
         ports:
         - containerPort: 5010
