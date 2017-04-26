@@ -1,9 +1,9 @@
-FROM ubuntu:latest
+FROM python:3.6-alpine
 MAINTAINER Jason Meridth "jmeridth@gmail.com"
-RUN apt-get update -y && \
-  apt-get install -y curl lsof vim python-pip python-dev build-essential
+RUN apk add --update py-pip build-base bash vim libffi-dev python-dev git
 COPY . /app
 WORKDIR /app
 RUN pip install -U pip && pip install -r requirements.txt
 ENTRYPOINT ["python"]
 CMD ["app.py"]
+
