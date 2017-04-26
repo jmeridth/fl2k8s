@@ -1,0 +1,43 @@
+# APP DEPLOYMENT
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: flask-sample-one
+  name: flask-sample-one
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      run: flask-sample-one
+  template:
+    metadata:
+      labels:
+        run: flask-sample-one
+    spec:
+      containers:
+      - image: localhost:5000/flask-sample-one
+        name: flask-sample-one
+        ports:
+        - containerPort: 5010
+          protocol: TCP
+
+---
+
+# APP SERVICE
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: flask-sample-one
+  name: flask-sample-one
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 5010
+  selector:
+    run: flask-sample-one
+  type: NodePort
