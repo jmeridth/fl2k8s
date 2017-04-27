@@ -7,7 +7,7 @@ metadata:
     run: fl8
   name: fl8
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       run: fl8
@@ -40,4 +40,4 @@ spec:
     targetPort: 5010
   selector:
     run: fl8
-  type: NodePort
+  type: LoadBalancer
