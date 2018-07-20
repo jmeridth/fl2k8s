@@ -1,5 +1,3 @@
-# APP DEPLOYMENT
-
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
@@ -17,27 +15,8 @@ spec:
         run: fl8
     spec:
       containers:
-      - image: jmeridth/fl8
+      - image: meridth/fl8
         name: fl8
         ports:
         - containerPort: 5010
           protocol: TCP
-
----
-
-# APP SERVICE
-
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    run: fl8
-  name: fl8
-spec:
-  ports:
-  - port: 80
-    protocol: TCP
-    targetPort: 5010
-  selector:
-    run: fl8
-  type: LoadBalancer

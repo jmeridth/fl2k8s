@@ -1,22 +1,25 @@
-# Requirements
-
-Minikube requires that VT-x/AMD-v virtualization is enabled in BIOS. To check that this is enabled on OSX / macOS run:
-
-    sysctl -a | grep machdep.cpu.features | grep VMX
-
-If there's output, you're good!
-
 # Prerequisites
 
-- kubectl
 - docker (for Mac)
-- minikube
-- virtualbox
+- kubernetes (for Mac)
 
 ```
-brew update && brew install kubectl && brew cask install docker minikube virtualbox
+brew update && brew cask install docker
 ```
 
 # Start
 
   ./run.sh
+
+# View
+
+  kubectl get all
+
+# Look for the target port on the Nodeport (source:target/TCP)
+
+Example:
+NAME                 TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+service/fl8          NodePort    10.102.88.231   <none>        8080:31659/TCP   16m
+
+
+go to http://127.0.0.1:31659 to view the app
