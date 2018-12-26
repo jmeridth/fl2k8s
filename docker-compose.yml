@@ -1,0 +1,7 @@
+version: '3'
+services:
+  fl8:
+    container_name: fl8
+    build: .
+    ports:
+      - 5010:5010
