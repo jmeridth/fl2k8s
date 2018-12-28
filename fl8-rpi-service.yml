@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: rpi-fl8
+  name: rpi-fl8
+spec:
+  type: NodePort
+  ports:
+  - name: app
+    port: 8080
+    targetPort: 5010
+    protocol: TCP
+  selector:
+    run: rpi-fl8

@@ -1,0 +1,9 @@
+version: '3'
+services:
+  rpi-fl8:
+    container_name: rpi-fl8
+    build:
+      context: ./
+      dockerfile: Dockerfile.arm
+    ports:
+      - 5010:5010
