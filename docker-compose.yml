@@ -1,7 +1,7 @@
 version: '3'
 services:
-  fl8:
-    container_name: fl8
+  fl2k8s:
+    container_name: fl2k8s
     build: .
     ports:
       - 5010:5010

@@ -2,21 +2,21 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   labels:
-    run: rpi-fl8
-  name: rpi-fl8
+    run: rpi-fl2k8s
+  name: rpi-fl2k8s
 spec:
   replicas: 3
   selector:
     matchLabels:
-      run: rpi-fl8
+      run: rpi-fl2k8s
   template:
     metadata:
       labels:
-        run: rpi-fl8
+        run: rpi-fl2k8s
     spec:
       containers:
-      - image: meridth/rpi-fl8
-        name: rpi-fl8
+      - name: rpi-fl2k8s
+        image: meridth/rpi-fl2k8s
         ports:
         - containerPort: 5010
           protocol: TCP

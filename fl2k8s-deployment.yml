@@ -2,21 +2,21 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   labels:
-    run: fl8
-  name: fl8
+    run: fl2k8s
+  name: fl2k8s
 spec:
   replicas: 3
   selector:
     matchLabels:
-      run: fl8
+      run: fl2k8s
   template:
     metadata:
       labels:
-        run: fl8
+        run: fl2k8s
     spec:
       containers:
-      - image: meridth/fl8
-        name: fl8
+      - name: fl2k8s
+        image: meridth/fl2k8s
         ports:
         - containerPort: 5010
           protocol: TCP

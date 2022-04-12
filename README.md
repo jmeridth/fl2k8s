@@ -3,11 +3,11 @@
 
 ## For OSX
 
-- docker (for Mac)
-- kubernetes (for Mac)
+- minikube
+- hyperkit
 
 ```
-brew update && brew cask install docker
+brew update && brew cask install minikube hyperkit
 ```
 
 ## For Ubuntu/Linux
@@ -35,7 +35,8 @@ To add QEMU in the build agent there is a specific Docker Image performing what 
 
 # View
 
-  kubectl get all
+  alias k="kubectl"
+  k get all
 
 # Look for the target port on the Nodeport (source:target/TCP)
 
@@ -43,7 +44,7 @@ Example:
 
 NAME                 TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
 
-service/fl8          NodePort    10.102.88.231   <none>        8080:31659/TCP   16m
+service/fl2k8s       NodePort    10.102.88.231   <none>        8080:31659/TCP   16m
 
 ## For OSX with Docker for Mac w/ Kubernetes
 

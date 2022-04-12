@@ -1,7 +1,7 @@
 version: '3'
 services:
-  rpi-fl8:
-    container_name: rpi-fl8
+  rpi-fl2k8s:
+    container_name: rpi-fl2k8s
     build:
       context: ./
       dockerfile: Dockerfile.arm
